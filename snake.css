@@ -1,4 +1,35 @@
 body {
     font-family: 'Courier New', Courier, monospace;
+    .score-container {
+        text-align: center;
+    }
     text-align: center;
+    #gameOverScreen {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        z-index: 1000;
+    }
+    
+    .game-over-content button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    
+    .game-over-content button:hover {
+        background-color: #45a049;
+    }
+    
 }

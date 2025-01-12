@@ -9,7 +9,17 @@
     </head>
 
     <body>
-        <h1>Snake</h1>
+        <h1>SNAKE</h1>
+        <div class="score-container">
+            <h2>Score: <span id="scoreDisplay">0</span> | High Score: <span id="highScoreDisplay">0</span></h2>
+        </div>
+        <div id="gameOverScreen" style="display: none;">
+            <div class="game-over-content">
+                <h2>GAME OVER</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <button onclick="restartGame()">Play Again</button>
+            </div>
+        </div>
         <canvas id="board"></canvas>
     </body>
 </html>
