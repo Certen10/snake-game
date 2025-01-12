@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Snake</title>
         <link rel="stylesheet" href="snake.css">
         <script src="snake.js"></script>
@@ -10,16 +10,59 @@
 
     <body>
         <h1>SNAKE</h1>
+        <div id="settingsScreen">
+            <h2>Select Board Size</h2>
+            <!-- Update your board size buttons -->
+            <div class="size-buttons">
+                <button onclick="setBoardSize(10, this)">10 x 10</button>
+                <button onclick="setBoardSize(15, this)">15 x 15</button>
+                <button onclick="setBoardSize(20, this)">20 x 20</button>
+            </div>
+
+            <h2>Select Board Color</h2>
+            <div class="color-buttons">
+                <button onclick="setColors('white', '#AFE1AF', this)">Classic Green</button>
+                <button onclick="setColors('#87CEEB', '#4169E1', this)">Ocean Blue</button>
+                <button onclick="setColors('#FFB6C1', '#FF69B4', this)">Pink Dream</button>
+                <button onclick="setColors('#FFD700', '#FFA500', this)">Sunset Gold</button>
+            </div>
+
+            <h2>Select Snake Color</h2>
+            <div class="snake-colors">
+                <button onclick="setSnakeColor('blue', this)">Blue Snake</button>
+                <button onclick="setSnakeColor('red', this)">Red Snake</button>
+                <button onclick="setSnakeColor('green', this)">Green Snake</button>
+                <button onclick="setSnakeColor('purple', this)">Purple Snake</button>
+                <button onclick="setSnakeColor('orange', this)">Orange Snake</button>
+            </div>
+            <div class="mode-selection">
+                <h2>Select Game Mode</h2>
+                <button onclick="setGameMode('classic', this)">Classic Snake</button>
+                <button onclick="setGameMode('special', this)">Special Foods</button>
+                <button onclick="setGameMode('obstacle', this)">Obstacle Mode</button>
+                <button onclick="setGameMode('timeattack', this)">Time Attack</button>
+            </div>
+            <div class="speed-buttons">
+                <h2>Select Speed</h2>
+                <button onclick="setGameSpeed('slow', this)">Slow</button>
+                <button onclick="setGameSpeed('normal', this)" class="selected">Normal</button>
+                <button onclick="setGameSpeed('fast', this)">Fast</button>
+            </div>
+            <div id="startButtonContainer">
+                <button onclick="startTheGame()" class="start-button">Start Game!</button>
+            </div>
+        </div>
         <div class="score-container">
             <h2>Score: <span id="scoreDisplay">0</span> | High Score: <span id="highScoreDisplay">0</span></h2>
         </div>
+        <canvas id="board"></canvas>
         <div id="gameOverScreen" style="display: none;">
             <div class="game-over-content">
                 <h2>GAME OVER</h2>
                 <p>Final Score: <span id="finalScore">0</span></p>
                 <button onclick="restartGame()">Play Again</button>
+                <button onclick="showSettings()">Change Settings</button>
             </div>
         </div>
-        <canvas id="board"></canvas>
     </body>
 </html>
