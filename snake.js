@@ -723,6 +723,13 @@ function startGame() {
 
 function restartGame() {
     document.getElementById("gameOverScreen").style.display = "none";
+    
+    // Clear existing interval before setting a new one
+    if (gameInterval) {
+        clearInterval(gameInterval);
+    }
+    
+    // Reset game state
     gameOver = false;
     score = 0;
     snakeBody = [];
@@ -733,13 +740,14 @@ function restartGame() {
     obstacles = [];
     document.getElementById("scoreDisplay").innerHTML = score;
     
+    // Start game with consistent speed
     if (currentGameMode === 'timeattack') {
-        clearInterval(gameInterval);
         startTimeAttackMode();
-        gameInterval = setInterval(update, gameSpeed); // Using gameSpeed instead of fixed value
     } else {
         placeFood();
-        gameInterval = setInterval(update, gameSpeed); // Using gameSpeed here too
     }
+    
+    // Set single game interval with current gameSpeed
+    gameInterval = setInterval(update, gameSpeed);
 }
 
